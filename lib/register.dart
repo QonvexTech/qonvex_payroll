@@ -17,16 +17,17 @@ class Register extends StatelessWidget {
           appBar: PreferredSize(
               preferredSize: Size.fromHeight(100.0),
               child: Padding(
-                padding: EdgeInsets.only(top: 40),
+                padding: EdgeInsets.only(top: 30),
                   child: AppBar(
+                    toolbarHeight: 85,
                     automaticallyImplyLeading: false, // hides leading widget
-                    leading: FlatButton(
-                      child: Icon(Icons.arrow_back_ios, size: 30, color: Colors.white,),
+                    leading: IconButton(
+                      icon: Icon(Icons.arrow_back_ios, size: 30, color: Colors.white,),
                       onPressed: (){
                       //  back button
                       },
                     ),
-                    leadingWidth: 180,
+                    leadingWidth: 190,
                     backgroundColor: Colors.transparent,
                     elevation: 0,
                   )
@@ -46,7 +47,7 @@ class Register extends StatelessWidget {
                 // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 30,
+                    height: 40,
                   ),
                   Text('Create\nAccount',
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,
@@ -125,7 +126,7 @@ class Register extends StatelessWidget {
                     )
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 20,
                   ),
                   GestureDetector(
                     onTap: (){},
@@ -136,17 +137,13 @@ class Register extends StatelessWidget {
                           Text('Sign up',
                           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,
                           color: Colors.white),),
-                          FlatButton(
-                            child: CircleAvatar(
-                              backgroundColor: Colors.black54,
-                              radius: 22,
-                              child: Icon(Icons.arrow_forward_ios_rounded,
-                                  color: Colors.white, size: 30),
-                            ),
-                            onPressed: () {
-                              //signup screen
-                            },
-                          ),
+                          IconButton(
+                            icon: CircleAvatar(child:Icon(Icons.arrow_forward_ios_rounded,
+                            color: Colors.white,),
+                            backgroundColor: Colors.grey),
+                            iconSize: 50,
+                            onPressed: (){},
+                          )
                         ],
                       )
                   ),
