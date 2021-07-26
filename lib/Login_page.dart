@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
+import 'register.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -126,7 +128,10 @@ class _LoginPageState extends State<LoginPage> {
                               'Sign up',
                               style: TextStyle(fontSize: 17),
                             ),
-                            onPressed: () {},
+    onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+    builder: (context) => Register(),
+                          )
+    )
                           )
             ],
                       mainAxisAlignment: MainAxisAlignment.center,
