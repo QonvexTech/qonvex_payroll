@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:qonvex_payroll/Login_page.dart';
 
 class Register extends StatelessWidget {
   const Register({Key? key}) : super(key: key);
@@ -12,21 +13,23 @@ class Register extends StatelessWidget {
     print('padding: ${deviceInfo.padding}');
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        //resizeToAvoidBottomInset: false,
           extendBodyBehindAppBar: true,
           appBar: PreferredSize(
               preferredSize: Size.fromHeight(100.0),
               child: Padding(
-                padding: EdgeInsets.only(top: 40),
+                padding: EdgeInsets.only(top: 30),
                   child: AppBar(
+                    toolbarHeight: 85,
                     automaticallyImplyLeading: false, // hides leading widget
-                    leading: FlatButton(
-                      child: Icon(Icons.arrow_back_ios, size: 30, color: Colors.white,),
-                      onPressed: (){
-                      //  back button
-                      },
+                    leading: IconButton(
+                      icon: Icon(Icons.arrow_back_ios, size: 30, color: Colors.white,),
+    onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+    builder: (context) => LoginPage(),
+    )
+    )
                     ),
-                    leadingWidth: 180,
+                    leadingWidth: 190,
                     backgroundColor: Colors.transparent,
                     elevation: 0,
                   )
@@ -43,10 +46,9 @@ class Register extends StatelessWidget {
             child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 50),
               child: ListView(
-                // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 30,
+                    height: 40,
                   ),
                   Text('Create\nAccount',
                     style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,
@@ -125,7 +127,7 @@ class Register extends StatelessWidget {
                     )
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 20,
                   ),
                   GestureDetector(
                     onTap: (){},
@@ -136,17 +138,15 @@ class Register extends StatelessWidget {
                           Text('Sign up',
                           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,
                           color: Colors.white),),
-                          FlatButton(
-                            child: CircleAvatar(
-                              backgroundColor: Colors.black54,
-                              radius: 22,
-                              child: Icon(Icons.arrow_forward_ios_rounded,
-                                  color: Colors.white, size: 30),
-                            ),
-                            onPressed: () {
-                              //signup screen
+                          IconButton(
+                            icon: CircleAvatar(child:Icon(Icons.arrow_forward_ios_rounded,
+                            color: Colors.white,),
+                            backgroundColor: Colors.grey),
+                            iconSize: 50,
+                            onPressed: (){
+                              Navigator.pop(context);
                             },
-                          ),
+                          )
                         ],
                       )
                   ),
@@ -164,9 +164,11 @@ class Register extends StatelessWidget {
                               'Sign in',
                               style: TextStyle(fontSize: 17),
                             ),
-                            onPressed: () {
+    onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+    builder: (context) => LoginPage(),
                               //signup screen
-                            },
+    )
+    )
                           )
                         ],
                         mainAxisAlignment: MainAxisAlignment.center,

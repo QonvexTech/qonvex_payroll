@@ -5,12 +5,18 @@ class Scanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int _selectedIndex = 0;
-    void _onItemTapped(int index) {
-    }
+    int _currentIndex = 0;
+    final List<Widget> _children = [];
+
+   // void onTabTapped(int index) {
+    //  setState(() {
+      //  _currentIndex = index;
+    //  });
+  //  }
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black54,
+          body: _children[_currentIndex],
           bottomNavigationBar: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -27,11 +33,14 @@ class Scanner extends StatelessWidget {
                 child: SizedBox(
                     height: 100,
                   child: BottomNavigationBar(
-                    currentIndex: _selectedIndex,
-                    onTap: _onItemTapped,
+                    // onTap: _onItemTapped,
                     elevation: 0,
+                    selectedIconTheme: IconThemeData(color: Colors.blueGrey),
                     selectedItemColor: Colors.blueGrey,
                     selectedLabelStyle: TextStyle(color: Colors.blueGrey),
+                    currentIndex: 0,
+                   // onTap: onTabTapped, // new
+                 //   currentIndex: _currentIndex,
                     items: <BottomNavigationBarItem>[
                       BottomNavigationBarItem(
                           icon: CircleAvatar(child: Icon(Icons.qr_code_scanner,
