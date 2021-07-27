@@ -144,7 +144,6 @@ class Register extends StatelessWidget {
                             backgroundColor: Colors.grey),
                             iconSize: 50,
                             onPressed: (){
-                              Navigator.pop(context);
                             },
                           )
                         ],
