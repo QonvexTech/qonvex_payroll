@@ -13,7 +13,7 @@ class Register extends StatelessWidget {
     print('padding: ${deviceInfo.padding}');
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        //resizeToAvoidBottomInset: false,
           extendBodyBehindAppBar: true,
           appBar: PreferredSize(
               preferredSize: Size.fromHeight(100.0),
@@ -46,7 +46,6 @@ class Register extends StatelessWidget {
             child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 50),
               child: ListView(
-                // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
                     height: 40,
@@ -144,7 +143,9 @@ class Register extends StatelessWidget {
                             color: Colors.white,),
                             backgroundColor: Colors.grey),
                             iconSize: 50,
-                            onPressed: (){},
+                            onPressed: (){
+                              Navigator.pop(context);
+                            },
                           )
                         ],
                       )
