@@ -18,7 +18,7 @@ const MyApp({Key? key}) : super(key: key);
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: QRView(),
+      home: QRViewPage(),
     );
   }
 }
