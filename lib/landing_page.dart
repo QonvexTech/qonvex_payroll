@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qonvex_payroll/QR_View.dart';
+import 'package:qonvex_payroll/profile.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class Landing_Page extends StatefulWidget {
@@ -12,7 +13,7 @@ class _Landing_PageState extends State<Landing_Page> {
   final List<Widget> _children = [
     QRViewPage(),
     Container(color: Colors.white),
-    Container(color: Colors.grey)
+    Profile(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -31,8 +32,8 @@ class _Landing_PageState extends State<Landing_Page> {
               label: ('History'),
             ),
             BottomNavigationBarItem(
-                icon: Icon(Icons.create_sharp),
-                label: ('Create')
+                icon: Icon(Icons.person),
+                label: ('Profile')
             )
           ]
       ),
