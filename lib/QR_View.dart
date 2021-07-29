@@ -8,12 +8,6 @@ class QRViewPage extends StatefulWidget {
   State<StatefulWidget> createState() => _QRViewPageState();
 }
 class _QRViewPageState extends State<QRViewPage> {
-  int _currentIndex = 0;
-  final List<Widget> _children = [
-    PlaceholderWidget(Colors.white),
-    PlaceholderWidget(Colors.white),
-    PlaceholderWidget(Colors.white)
-  ];
   Barcode? result;
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
@@ -23,25 +17,6 @@ class _QRViewPageState extends State<QRViewPage> {
     final Size size = deviceInfo.size;
     SystemChrome.setEnabledSystemUIOverlays([]);
     return Scaffold(
-      //body: _children[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-          onTap: onTabTapped, // new
-          currentIndex: _currentIndex,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.qr_code_scanner),
-            label: ('Scan'),
-          ),
-           BottomNavigationBarItem(
-               icon: Icon(Icons.history),
-               label: ('History'),
-           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.create_sharp),
-            label: ('Create')
-          )
-        ]
-      ),
       body: Stack(
         children: <Widget>[
          Container(child: _buildQrView(context)),
@@ -140,11 +115,7 @@ class _QRViewPageState extends State<QRViewPage> {
     );
   }
 
-  void onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
+
   void _onQRViewPageCreated(QRViewController controller) {
     setState(() {
       this.controller = controller;

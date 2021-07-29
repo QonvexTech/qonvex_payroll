@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qonvex_payroll/Login_page.dart';
 import 'package:qonvex_payroll/QR_View.dart';
+import 'package:qonvex_payroll/landing_page.dart';
 import 'register.dart';
 import 'qr.dart';
 import 'profile.dart';
@@ -18,7 +19,7 @@ const MyApp({Key? key}) : super(key: key);
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: QRViewPage(),
+      home: Landing_Page(),
     );
   }
 }
