@@ -44,8 +44,8 @@ class Profile extends StatelessWidget {
               child: const Icon(Icons.edit_rounded),
               backgroundColor: Colors.blue),
           body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+            child: ListView(
+              // mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
                   padding: EdgeInsets.only(top: 10),
