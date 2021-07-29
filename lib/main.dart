@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:qonvex_payroll/Login_page.dart';
+import 'package:qonvex_payroll/QR_View.dart';
+// import 'package:qonvex_payroll/Login_page.dart';
 // import 'package:qonvex_payroll/QR_View.dart';
-import 'register.dart';
-import 'qr.dart';
-import 'profile.dart';
+// import 'register.dart';
+// import 'qr.dart';
+// import 'profile.dart';
+// import 'payroll.dart';
 
 void main() {
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
-const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,10 +21,12 @@ const MyApp({Key? key}) : super(key: key);
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Profile(),
+      home: QRViewPage(),
+      // home: QRViewPage(),
     );
   }
 }
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -30,6 +35,7 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
+
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
