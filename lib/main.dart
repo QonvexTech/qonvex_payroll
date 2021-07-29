@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:qonvex_payroll/QR_View.dart';
-// import 'package:qonvex_payroll/Login_page.dart';
-// import 'package:qonvex_payroll/QR_View.dart';
-// import 'register.dart';
-// import 'qr.dart';
-// import 'profile.dart';
-// import 'payroll.dart';
+import 'package:qonvex_payroll/landing_page.dart';
+import 'register.dart';
+import 'qr.dart';
+import 'profile.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,8 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: QRViewPage(),
-      // home: QRViewPage(),
+      home: Landing_Page(),
     );
   }
 }
