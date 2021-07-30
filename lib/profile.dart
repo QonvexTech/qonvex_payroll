@@ -10,6 +10,7 @@ class Profile extends StatefulWidget {
 }
 
 class _PayrollState extends State<Profile> {
+  bool selected = false;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -269,8 +270,30 @@ class _PayrollState extends State<Profile> {
                     color: Colors.pink,
                   ),
                   Container(
-                    color: Colors.purple,
-                  ),
+                    color: Colors.white,
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          selected = !selected;
+                        });
+                      },
+                      child: Center(
+                        child: AnimatedContainer(
+                          width: selected ? 200.0 : 100.0,
+                          height: selected ? 100.0 : 200.0,
+                          color: selected ? Colors.red : Colors.blue,
+                          alignment:
+                          selected ? Alignment.center : AlignmentDirectional.topCenter,
+                          duration: const Duration(seconds: 2),
+                          curve: Curves.fastOutSlowIn,
+                          child: const FlutterLogo(size: 75),
+                        ),
+                      ),
+                    )
+                  )
+    ]
+                    ),
+                  )
                 ],
               ),
             )
@@ -285,10 +308,6 @@ class _PayrollState extends State<Profile> {
             //       ),
             //     ],
             //   ),
-            // ),
-          ],
-        ),
-      ),
     );
   }
 }

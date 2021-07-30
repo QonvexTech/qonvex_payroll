@@ -7,7 +7,6 @@ class Landing_Page extends StatefulWidget {
   @override
   _Landing_PageState createState() => _Landing_PageState();
 }
-
 class _Landing_PageState extends State<Landing_Page> {
   int _currentIndex = 0;
   final List<Widget> _children = [

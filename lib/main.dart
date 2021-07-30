@@ -4,9 +4,12 @@ import 'package:qonvex_payroll/landing_page.dart';
 import 'register.dart';
 import 'qr.dart';
 import 'profile.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(MyApp());
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
+      .then((_) => runApp(MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Profile(),
+      home:Landing_Page(),
     );
   }
 }
