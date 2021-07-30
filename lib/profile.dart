@@ -210,54 +210,59 @@ class _PayrollState extends State<Profile> {
                   Container(
                     child: Container(
                       padding: EdgeInsets.only(left: 20, right: 20, top: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: ListView(
                         children: [
-                          Text('Complete Address',
-                              style: TextStyle(color: Colors.grey)),
-                          SizedBox(height: 20),
-                          Divider(
-                            height: 20,
-                            thickness: 3,
-                            // indent: 2,
-                            // endIndent: 2,
-                          ),
-                          Container(
-                            padding:
-                                EdgeInsets.only(left: 5, right: 5, top: 10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Mailing Address',
-                                    style: TextStyle(color: Colors.grey)),
-                                SizedBox(height: 20),
-                                Divider(
-                                  height: 20,
-                                  thickness: 3,
-                                  // indent: 2,
-                                  // endIndent: 2,
-                                ),
-                                Container(
-                                  padding: EdgeInsets.only(
-                                      left: 5, right: 5, top: 10),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Lorem Ipsum',
-                                          style: TextStyle(color: Colors.grey)),
-                                      SizedBox(height: 20),
-                                      Divider(
-                                        height: 20,
-                                        thickness: 3,
-                                        // indent: 2,
-                                        // endIndent: 2,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Complete Address',
+                                  style: TextStyle(color: Colors.grey)),
+                              SizedBox(height: 20),
+                              Divider(
+                                height: 20,
+                                thickness: 3,
+                                // indent: 2,
+                                // endIndent: 2,
+                              ),
+                              Container(
+                                padding:
+                                    EdgeInsets.only(left: 5, right: 5, top: 10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Mailing Address',
+                                        style: TextStyle(color: Colors.grey)),
+                                    SizedBox(height: 20),
+                                    Divider(
+                                      height: 20,
+                                      thickness: 3,
+                                      // indent: 2,
+                                      // endIndent: 2,
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.only(
+                                          left: 5, right: 5, top: 10),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Lorem Ipsum',
+                                              style: TextStyle(
+                                                  color: Colors.grey)),
+                                          SizedBox(height: 20),
+                                          Divider(
+                                            height: 20,
+                                            thickness: 3,
+                                            // indent: 2,
+                                            // endIndent: 2,
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -297,6 +302,7 @@ class _PayrollState extends State<Profile> {
                 ],
               ),
             )
+<<<<<<< HEAD
             //       // second tab bar viiew widget
             //       Container(
             //         color: Colors.pink,
@@ -308,6 +314,11 @@ class _PayrollState extends State<Profile> {
             //       ),
             //     ],
             //   ),
+=======
+          ],
+        ),
+      ),
+>>>>>>> 7688b01d45ead4d0a9fc85fcf335e43c7c7a1c36
     );
   }
 }
