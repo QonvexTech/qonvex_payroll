@@ -10,7 +10,6 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> with TickerProviderStateMixin {
-  bool selected = false;
   TabController? _tabController;
   @override
   void initState() {
@@ -294,26 +293,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
               ),
               Container(
                   color: Colors.white,
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selected = !selected;
-                      });
-                    },
-                    child: Center(
-                      child: AnimatedContainer(
-                        width: selected ? 200.0 : 100.0,
-                        height: selected ? 100.0 : 200.0,
-                        color: selected ? Colors.red : Colors.blue,
-                        alignment: selected
-                            ? Alignment.center
-                            : AlignmentDirectional.topCenter,
-                        duration: const Duration(seconds: 2),
-                        curve: Curves.fastOutSlowIn,
-                        child: const FlutterLogo(size: 75),
-                      ),
-                    ),
-                  ))
+              )
             ]),
           )
         ],
