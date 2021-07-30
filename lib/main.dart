@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qonvex_payroll/Login_page.dart';
 import 'package:qonvex_payroll/QR_View.dart';
 import 'package:qonvex_payroll/landing_page.dart';
 import 'register.dart';
@@ -8,8 +9,8 @@ import 'package:flutter/services.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
-      .then((_) => runApp(MyApp()));
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
