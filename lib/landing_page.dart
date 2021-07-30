@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:qonvex_payroll/QR_View.dart';
 import 'package:qonvex_payroll/profile.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'landing_page.dart';
 
 class Landing_Page extends StatefulWidget {
   @override
@@ -15,7 +14,6 @@ class _Landing_PageState extends State<Landing_Page> {
     QRViewPage(),
     Container(color: Colors.white),
     Profile(),
-    Landing_Page()
   ];
   @override
   Widget build(BuildContext context) {
