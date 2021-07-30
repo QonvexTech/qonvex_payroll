@@ -6,10 +6,10 @@ class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
 
   @override
-  _PayrollState createState() => _PayrollState();
+  _ProfileState createState() => _ProfileState();
 }
 
-class _PayrollState extends State<Profile> with TickerProviderStateMixin {
+class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   bool selected = false;
   TabController? _tabController;
   @override
