@@ -7,6 +7,7 @@ import 'register.dart';
 import 'qr.dart';
 import 'profile.dart';
 import 'package:flutter/services.dart';
+import 'attendance.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations(
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: payroll(),
+      home: Attendance(),
     );
   }
 }

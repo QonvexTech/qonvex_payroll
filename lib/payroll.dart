@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class payroll extends StatefulWidget {
+class PayrollPage extends StatefulWidget {
   @override
-  _payrollState createState() => _payrollState();
+  _PayrollPageState createState() => _PayrollPageState();
 }
-class _payrollState extends State<payroll> {
+class _PayrollPageState extends State<PayrollPage> {
   DateTime selectedDate = DateTime.now();
   Future<void> _selectDate(BuildContext context) async {
     SystemChrome.setEnabledSystemUIOverlays([]);
