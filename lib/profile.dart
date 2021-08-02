@@ -292,7 +292,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 color: Colors.pink,
               ),
               Container(
-                  color: Colors.white,
+                color: Colors.white,
               )
             ]),
           )
