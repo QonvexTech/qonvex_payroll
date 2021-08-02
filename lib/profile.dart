@@ -1,6 +1,7 @@
 // import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'attendance.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
