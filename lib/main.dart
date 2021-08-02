@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:qonvex_payroll/Login_page.dart';
 import 'package:qonvex_payroll/QR_View.dart';
 import 'package:qonvex_payroll/landing_page.dart';
+import 'package:qonvex_payroll/payroll.dart';
 import 'register.dart';
 import 'qr.dart';
 import 'profile.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Landing_Page(),
+      home: payroll(),
     );
   }
 }
