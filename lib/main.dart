@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qonvex_payroll/Login_page.dart';
 import 'package:qonvex_payroll/QR_View.dart';
+import 'package:qonvex_payroll/forgot_password.dart';
 import 'package:qonvex_payroll/landing_page.dart';
 import 'package:qonvex_payroll/payroll.dart';
 import 'register.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: PayrollPage(),
+      home: Profile(),
     );
   }
 }
