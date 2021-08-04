@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:qonvex_payroll/Login_page.dart';
+import 'package:qonvex_payroll/globals/logged_user.dart';
 import 'attendance.dart';
 import 'general.dart';
 import 'payroll.dart';
@@ -114,11 +115,11 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text('Ji Chang Wook',
+                      Text('${LoggedUser?.details!.name??"---"}'.toUpperCase(),
                           style: TextStyle(
                               fontSize: 30, fontWeight: FontWeight.bold)),
                       SizedBox(height: 2.0),
-                      Text('jichang_wook@example.com',
+                      Text('${LoggedUser?.details!.email??"---"}',
                           style: TextStyle(
                               color: Colors.blue, fontStyle: FontStyle.italic)),
                     ],
@@ -133,7 +134,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                                 color: Colors.grey,
                               )),
                           Text(
-                            '12345',
+                            '${LoggedUser?.details!.ID??"---"}'.padLeft(5,"0"),
                             style: TextStyle(color: Colors.black),
                           )
                         ]),

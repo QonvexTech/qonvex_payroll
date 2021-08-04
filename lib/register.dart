@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:qonvex_payroll/Login_page.dart';
+import 'package:qonvex_payroll/landing_page.dart';
 import 'package:qonvex_payroll/services/auth_service.dart';
 import 'dart:ui';
 
@@ -191,7 +192,7 @@ class _RegisterState extends State<Register> {
                                   Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (_) => LoginPage()));
+                                          builder: (_) => Landing_Page()));
                                 }
                               }).whenComplete(
                                       () => setState(() => spooner = false));

@@ -28,21 +28,20 @@ class _PayrollPageState extends State<PayrollPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-          child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-        Text("${selectedDate.toLocal()}".split(' ')[0]),
-        SizedBox(
-          height: 0,
-        ),
-        ElevatedButton(
-          onPressed: () => _selectDate(context),
-          child: Text('Select date'),
-        ),
-            Divider(
-              height: 30,
-              thickness: 2,
-            ),
-        Expanded(
+        body: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+          ElevatedButton.icon(
+            style: ButtonStyle(backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.transparent), elevation: MaterialStateProperty.resolveWith((states) => 0)),
+            onPressed: () => _selectDate(context),
+            label: Text("${selectedDate.toLocal()}".split(' ')[0], style: TextStyle(color: Colors.black),),
+            icon: const Icon(Icons.arrow_drop_down, color: Colors.black,),
+          ),
+              Divider(
+                height: 5,
+                thickness: 2,
+              ),
+          Expanded(
             child: Container(
                 padding: EdgeInsets.fromLTRB(20, 0, 15, 10),
                 child: ListView(children: [
@@ -103,9 +102,12 @@ class _PayrollPageState extends State<PayrollPage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: const <Widget>[
-                            Text(
-                              'Description',
-                              style: TextStyle(color: Colors.grey),
+                            Padding(
+                              padding: EdgeInsets.all(2),
+                              child: Text(
+                                'Description',
+                                style: TextStyle(color: Colors.grey),
+                              ),
                             ),
                             Text(
                               'Basic Salary :',
@@ -129,21 +131,36 @@ class _PayrollPageState extends State<PayrollPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Text(
-                              'Earnings',
-                              style: TextStyle(color: Colors.grey),
+                            Padding(
+                              padding: const EdgeInsets.all(2),
+                              child: Text(
+                                'Earnings',
+                                style: TextStyle(color: Colors.grey),
+                              ),
                             ),
-                            Text(
-                              '6000.00',
+                            Padding(
+                              padding: const EdgeInsets.all(3),
+                              child: Text(
+                                '6000.00',
+                              ),
                             ),
-                            Text(
-                              '0.00',
+                            Padding(
+                              padding: const EdgeInsets.all(3),
+                              child: Text(
+                                '0.00',
+                              ),
                             ),
-                            Text(
-                              '0.00',
+                            Padding(
+                              padding: const EdgeInsets.all(3),
+                              child: Text(
+                                '0.00',
+                              ),
                             ),
-                            Text(
-                              '---',
+                            Padding(
+                              padding: const EdgeInsets.all(3),
+                              child: Text(
+                                '---',
+                              ),
                             ),
                             Text('---'),
                           ],
@@ -153,15 +170,21 @@ class _PayrollPageState extends State<PayrollPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            Text(
-                              'Deductions',
-                              style: TextStyle(color: Colors.grey),
+                            Padding(
+                              padding: const EdgeInsets.all(2),
+                              child: Text(
+                                'Deductions',
+                                style: TextStyle(color: Colors.grey),
+                              ),
                             ),
                             Text(
                               '---',
                             ),
-                            Text(
-                              '---',
+                            Padding(
+                              padding: const EdgeInsets.all(3),
+                              child: Text(
+                                '---',
+                              ),
                             ),
                             Text(
                               '---',
@@ -222,39 +245,27 @@ class _PayrollPageState extends State<PayrollPage> {
                             SizedBox(
                               height: 30,
                             )
-                          ]
-                      ),
+                          ]),
                     ),
-                  ]
-                  ),
-                Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                Expanded(
-                child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const <Widget>[
-                    Text(
-                    'Five Thousand Eight HUndred Fifty Pesos',
-                    style: TextStyle(color: Colors.grey),
-                    ),
-                      Divider(
-                        height: 30,
-                        thickness: 2,
-                      ),
-                ]
-                )
-            )
-                ]
-        )
-      ]
+                  ]),
+                  Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                    Expanded(
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: const <Widget>[
+                          Text(
+                            'Five Thousand Eight HUndred Fifty Pesos',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                          Divider(
+                            height: 5,
+                            thickness: 2,
+                          ),
+                        ]))
+                  ])
+                ])),
           )
-      ),
-                )
-                ]
-    )
-      )
-    );
+        ]));
   }
 }
