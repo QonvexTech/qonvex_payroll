@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'profile.dart';
+// import 'profile.dart';
 
 class Attendance extends StatefulWidget {
   const Attendance({Key? key}) : super(key: key);
@@ -30,7 +30,7 @@ class _AttendanceState extends State<Attendance> {
                       Text('In'),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text('8:00pam'),
+                        child: Text('8:00am'),
                       )
                     ],
                   ),

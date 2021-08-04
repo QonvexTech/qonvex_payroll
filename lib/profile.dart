@@ -1,7 +1,11 @@
 // import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:qonvex_payroll/Login_page.dart';
 import 'attendance.dart';
+import 'general.dart';
+import 'contacts.dart';
+import 'payroll.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -12,6 +16,16 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   TabController? _tabController;
+
+  // int _selectedIndex = 0;
+
+  List<Widget> _tabs = [
+    GeneralPage(),
+    ContactsPage(),
+    Attendance(),
+    PayrollPage()
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -48,12 +62,31 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 style: TextStyle(color: Colors.black),
               ),
               actions: [
-                IconButton(
-                  icon: Icon(Icons.more_vert_outlined, color: Colors.black),
-                  onPressed: () {
-                    //  navigation
-                  },
-                )
+                PopupMenuButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5)),
+                  icon: Icon(
+                    Icons.more_vert_rounded,
+                    color: Colors.black,
+                  ),
+                  padding: EdgeInsets.only(left: 4),
+                  offset: Offset(-10.0, kToolbarHeight),
+                  itemBuilder: (context) => [
+                    PopupMenuItem(
+                      value: 1,
+                      child: GestureDetector(
+                          child: Text(
+                            'Log out',
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginPage()));
+                          }),
+                    )
+                  ],
+                ),
               ]),
         ),
       ),
@@ -180,6 +213,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
             child: AppBar(
               backgroundColor: Colors.white,
               // elevation: 0,
+
               bottom: TabBar(
                 controller: _tabController,
                 unselectedLabelColor: Colors.grey,
@@ -205,7 +239,6 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                       text: 'Contacts'),
                   Tab(
                     icon: Icon(Icons.calendar_today_rounded,
-                        // size: 35,
                         color: _tabController!.index == 2
                             ? Colors.blue
                             : Colors.grey),
@@ -213,6 +246,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   ),
                   Tab(
                     icon: Icon(Icons.account_balance_wallet_rounded,
+
                         // size: 35,
                         color: _tabController!.index == 3
                             ? Colors.blue
@@ -223,79 +257,9 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
               ),
             ),
           ),
-          // create widgets for each tab bar here
+
           Expanded(
-            child: TabBarView(controller: _tabController, children: [
-              Container(
-                child: Container(
-                  padding: EdgeInsets.only(left: 20, right: 20, top: 20),
-                  child: ListView(
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Complete Address',
-                              style: TextStyle(color: Colors.grey)),
-                          SizedBox(height: 20),
-                          Divider(
-                            height: 20,
-                            thickness: 3,
-                            // indent: 2,
-                            // endIndent: 2,
-                          ),
-                          Container(
-                            padding:
-                                EdgeInsets.only(left: 5, right: 5, top: 10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Mailing Address',
-                                    style: TextStyle(color: Colors.grey)),
-                                SizedBox(height: 20),
-                                Divider(
-                                  height: 20,
-                                  thickness: 3,
-                                  // indent: 2,
-                                  // endIndent: 2,
-                                ),
-                                Container(
-                                  padding: EdgeInsets.only(
-                                      left: 5, right: 5, top: 10),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Lorem Ipsum',
-                                          style: TextStyle(color: Colors.grey)),
-                                      SizedBox(height: 20),
-                                      Divider(
-                                        height: 20,
-                                        thickness: 3,
-                                        // indent: 2,
-                                        // endIndent: 2,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Container(
-                color: Colors.red,
-              ),
-              Container(
-                color: Colors.pink,
-              ),
-              Container(
-                color: Colors.white,
-              )
-            ]),
+            child: TabBarView(controller: _tabController, children: _tabs),
           )
         ],
       ),
