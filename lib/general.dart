@@ -10,8 +10,8 @@ class GeneralPage extends StatefulWidget {
 class _GeneralPageState extends State<GeneralPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Container(
+    return Scaffold(
+      body: Container(
         padding: EdgeInsets.only(left: 20, right: 20, top: 20),
         child: ListView(
           children: [
@@ -65,6 +65,12 @@ class _GeneralPageState extends State<GeneralPage> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            // Add your onPressed code here!
+          },
+          child: const Icon(Icons.edit_rounded),
+          backgroundColor: Colors.blue),
     );
   }
 }

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:qonvex_payroll/Login_page.dart';
 import 'attendance.dart';
 import 'general.dart';
-import 'contacts.dart';
 import 'payroll.dart';
 
 class Profile extends StatefulWidget {
@@ -21,7 +20,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
 
   List<Widget> _tabs = [
     GeneralPage(),
-    ContactsPage(),
+    // ContactsPage(),
     Attendance(),
     PayrollPage()
   ];
@@ -29,7 +28,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(vsync: this, length: 4);
+    _tabController = new TabController(vsync: this, length: 3);
     _tabController!.addListener(_handleTabSelection);
   }
 
@@ -90,12 +89,12 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
               ]),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            // Add your onPressed code here!
-          },
-          child: const Icon(Icons.edit_rounded),
-          backgroundColor: Colors.blue),
+      // floatingActionButton: FloatingActionButton(
+      //     onPressed: () {
+      //       // Add your onPressed code here!
+      //     },
+      //     child: const Icon(Icons.edit_rounded),
+      //     backgroundColor: Colors.blue),
       body: Column(
         children: <Widget>[
           // construct the profile details widget here
@@ -231,24 +230,17 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                     text: 'General',
                   ),
                   Tab(
-                      icon: Icon(Icons.call_rounded,
-                          // size: 35,
-                          color: _tabController!.index == 1
-                              ? Colors.blue
-                              : Colors.grey),
-                      text: 'Contacts'),
-                  Tab(
                     icon: Icon(Icons.calendar_today_rounded,
-                        color: _tabController!.index == 2
+                        color: _tabController!.index == 1
                             ? Colors.blue
                             : Colors.grey),
-                    text: 'Attendace',
+                    text: 'Attendance',
                   ),
                   Tab(
                     icon: Icon(Icons.account_balance_wallet_rounded,
 
                         // size: 35,
-                        color: _tabController!.index == 3
+                        color: _tabController!.index == 2
                             ? Colors.blue
                             : Colors.grey),
                     text: 'Payroll',
