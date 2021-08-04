@@ -29,4 +29,8 @@ class AuthService{
       return false;
     }
   }
+
+  Future<bool> register() async {
+    return true;
+  }
 }
