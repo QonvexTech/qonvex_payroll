@@ -38,7 +38,7 @@ class _AttendanceState extends State<Attendance> {
                     child: SizedBox(
                       height: 30,
                       child: VerticalDivider(
-                        thickness: 2,
+                        thickness: 5,
                         indent: 5,
                         endIndent: 0,
                         width: 20,
