@@ -18,8 +18,10 @@ class _RegisterState extends State<Register> {
       new TextEditingController();
   final TextEditingController _emailController = new TextEditingController();
   final TextEditingController _fullnameController = new TextEditingController();
+  final TextEditingController _confirmPassController =
+      new TextEditingController();
   final AuthService _authService = AuthService();
-  // bool _isLoading = false;
+
   bool spooner = false;
 
   @override
@@ -27,6 +29,7 @@ class _RegisterState extends State<Register> {
     MediaQueryData deviceInfo = MediaQuery.of(context);
     print('size: ${deviceInfo.size}');
     print('padding: ${deviceInfo.padding}');
+
     return SafeArea(
       child: Stack(
         children: [
@@ -85,6 +88,7 @@ class _RegisterState extends State<Register> {
                       width: double.infinity,
                       child: TextFormField(
                         controller: _emailController,
+                        // validator: FieldValidator.email(),
                         decoration: InputDecoration(
                           labelText: "Email",
                           labelStyle: TextStyle(
@@ -102,58 +106,81 @@ class _RegisterState extends State<Register> {
                     Container(
                         width: double.infinity,
                         child: TextFormField(
-                            controller: _fullnameController,
-                            decoration: InputDecoration(
-                              labelText: "Full Name",
-                              labelStyle: TextStyle(
-                                color: Colors.grey.shade200,
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.grey.shade200),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.grey.shade200),
-                              ),
-                            ))),
+                          controller: _fullnameController,
+                          decoration: InputDecoration(
+                            labelText: "Full Name",
+                            labelStyle: TextStyle(
+                              color: Colors.grey.shade200,
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.grey.shade200),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.grey.shade200),
+                            ),
+                          ),
+                        )),
                     Container(
-                        width: double.infinity,
-                        child: TextFormField(
-                            controller: _UserPasswordController,
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              labelText: "Password",
-                              labelStyle: TextStyle(
-                                color: Colors.grey.shade200,
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.grey.shade200),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.grey.shade200),
-                              ),
-                            ))),
+                      width: double.infinity,
+                      child: TextFormField(
+                        controller: _UserPasswordController,
+                        // validator: FieldValidator.password(
+                        //     minLength: 8,
+                        //     shouldContainNumber: true,
+                        //     shouldContainCapitalLetter: true,
+                        //     shouldContainSmallLetter: true,
+                        //     shouldContainSpecialChars: true,
+                        //     errorMessage:
+                        //         "Password must match the required format",
+                        //     isNumberNotPresent: () {
+                        //       return "Password must contain number";
+                        //     },
+                        //     isSpecialCharsNotPresent: () {
+                        //       return "Password must contain special characters";
+                        //     },
+                        //     isCapitalLetterNotPresent: () {
+                        //       return "Password must contain capital letters";
+                        //     }),
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          labelText: "Password",
+                          labelStyle: TextStyle(
+                            color: Colors.grey.shade200,
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey.shade200),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.grey.shade200),
+                          ),
+                        ),
+                      ),
+                    ),
                     Container(
-                        width: double.infinity,
-                        child: TextFormField(
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              labelText: "Confirm Password",
-                              labelStyle: TextStyle(
-                                color: Colors.grey.shade200,
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.grey.shade200),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.grey.shade200),
-                              ),
-                            ))),
+                      width: double.infinity,
+                      child: TextFormField(
+                          controller: _confirmPassController,
+                          obscureText: true,
+                          // validator: FieldValidator.equalTo(
+                          //     _confirmPassController,
+                          //     message: "Password Mismatch"),
+                          decoration: InputDecoration(
+                            labelText: "Confirm Password",
+                            labelStyle: TextStyle(
+                              color: Colors.grey.shade200,
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.grey.shade200),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.grey.shade200),
+                            ),
+                          )),
+                    ),
                     SizedBox(
                       height: 20,
                     ),
