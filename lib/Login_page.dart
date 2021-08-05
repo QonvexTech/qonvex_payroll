@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:qonvex_payroll/forgot_password.dart';
 import 'package:qonvex_payroll/landing_page.dart';
 import 'package:qonvex_payroll/services/auth_service.dart';
 
@@ -16,10 +17,10 @@ class _LoginPageState extends State<LoginPage> {
   bool _passwordVisible = false;
   final TextEditingController _UserPasswordController =
       new TextEditingController();
-  final TextEditingController _emailController =
-      new TextEditingController();
+  final TextEditingController _emailController = new TextEditingController();
   final AuthService _authService = AuthService();
   bool _isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     MediaQueryData deviceInfo = MediaQuery.of(context);
@@ -113,11 +114,19 @@ class _LoginPageState extends State<LoginPage> {
                           setState(() {
                             _isLoading = true;
                           });
-                          _authService.login(email: _emailController.text, password: _UserPasswordController.text).then((value) {
-                            if(value){
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=> Landing_Page()));
+                          _authService
+                              .login(
+                                  email: _emailController.text,
+                                  password: _UserPasswordController.text)
+                              .then((value) {
+                            if (value) {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => Landing_Page()));
                             }
-                          }).whenComplete(() => setState(() => _isLoading = false));
+                          }).whenComplete(
+                                  () => setState(() => _isLoading = false));
                         },
                       ),
                     ],
@@ -126,7 +135,10 @@ class _LoginPageState extends State<LoginPage> {
                 Align(
                   alignment: AlignmentDirectional.centerStart,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () =>
+                        Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ForgotPassword(),
+                    )),
                     child: Text('Forgot Password?'),
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
@@ -158,15 +170,17 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ]),
             )),
-            _isLoading ? Container(
-              color: Colors.black54,
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 4,sigmaY: 4),
-                child: Center(
-                  child: CircularProgressIndicator(),
-                ),
-              ),
-            ) : Container()
+            _isLoading
+                ? Container(
+                    color: Colors.black54,
+                    child: BackdropFilter(
+                      filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+                      child: Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                    ),
+                  )
+                : Container()
           ],
         ));
   }
