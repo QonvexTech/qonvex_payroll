@@ -37,10 +37,6 @@ class _PayrollPageState extends State<PayrollPage> {
             label: Text("${selectedDate.toLocal()}".split(' ')[0], style: TextStyle(color: Colors.black),),
             icon: const Icon(Icons.arrow_drop_down, color: Colors.black,),
           ),
-              Divider(
-                height: 5,
-                thickness: 2,
-              ),
           Expanded(
             child: Container(
                 padding: EdgeInsets.fromLTRB(20, 0, 15, 10),
@@ -177,8 +173,11 @@ class _PayrollPageState extends State<PayrollPage> {
                                 style: TextStyle(color: Colors.grey),
                               ),
                             ),
-                            Text(
-                              '---',
+                            Padding(
+                              padding: const EdgeInsets.all(1),
+                              child: Text(
+                                '---',
+                              ),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(3),
@@ -186,8 +185,11 @@ class _PayrollPageState extends State<PayrollPage> {
                                 '---',
                               ),
                             ),
-                            Text(
-                              '---',
+                            Padding(
+                              padding: const EdgeInsets.all(3),
+                              child: Text(
+                                '---',
+                              ),
                             ),
                             Text(
                               '90.00',
@@ -257,10 +259,6 @@ class _PayrollPageState extends State<PayrollPage> {
                           Text(
                             'Five Thousand Eight HUndred Fifty Pesos',
                             style: TextStyle(color: Colors.grey),
-                          ),
-                          Divider(
-                            height: 5,
-                            thickness: 2,
                           ),
                         ]))
                   ])
