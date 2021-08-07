@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:qonvex_payroll/Login_page.dart';
 import 'package:qonvex_payroll/QR_View.dart';
-<<<<<<< HEAD
 import 'package:qonvex_payroll/edit_profile.dart';
-=======
 import 'package:qonvex_payroll/check_email.dart';
->>>>>>> 16cb7830788819063904148a290ff902f14e3cce
 import 'package:qonvex_payroll/forgot_password.dart';
 import 'package:qonvex_payroll/general.dart';
 import 'package:qonvex_payroll/landing_page.dart';
@@ -43,11 +40,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Data extends ChangeNotifier {
-  Map data = {
-    'address': 'Brgy. Obrero',
-    'mailing address': 'Magsaysay St. blk 2',
-    'lorem ipsum': 'wala lang'
-  };
+  Map data = {'address': '', 'mailing address': '', 'lorem ipsum': ''};
 
   void updateAccount(input) {
     data = input;

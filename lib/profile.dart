@@ -85,12 +85,6 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 ]),
           ),
         ),
-        // floatingActionButton: FloatingActionButton(
-        //     onPressed: () {
-        //       // Add your onPressed code here!
-        //     },
-        //     child: const Icon(Icons.edit_rounded),
-        //     backgroundColor: Colors.blue),
         body: Column(
           children: <Widget>[
             // construct the profile details widget here

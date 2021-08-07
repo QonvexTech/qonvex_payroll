@@ -4,21 +4,22 @@ class UserModel {
   String email;
   List roles;
 
-  UserModel
-
-  ({
-    required this.ID,
-    required this.name,
-    required this.email,
-    required this.roles
-  });
-  factory UserModel.fromJson(Map parseJson){
-    return UserModel(ID: parseJson['id'], name: parseJson['name'], email: parseJson['email'], roles: parseJson['roles']);
+  UserModel(
+      {required this.ID,
+      required this.name,
+      required this.email,
+      required this.roles});
+  factory UserModel.fromJson(Map parseJson) {
+    return UserModel(
+        ID: parseJson['id'],
+        name: parseJson['name'],
+        email: parseJson['email'],
+        roles: parseJson['roles']);
   }
-  Map<String, dynamic> toJson()=>{
-    'id' :ID,
-    'name' : name,
-    'email' : email,
-    'roles' : roles,
-  };
+  Map<String, dynamic> toJson() => {
+        'id': ID,
+        'name': name,
+        'email': email,
+        'roles': roles,
+      };
 }
