@@ -21,8 +21,19 @@ class _RegisterState extends State<Register> {
   final TextEditingController _confirmPassController =
       new TextEditingController();
   final AuthService _authService = AuthService();
+  final _formKey = GlobalKey<FormState>();
 
   bool spooner = false;
+
+  var isLoading = false;
+
+  void _submit() {
+    final isValid = _formKey.currentState!.validate();
+    if (!isValid) {
+      return;
+    }
+    _formKey.currentState!.save();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -101,6 +112,10 @@ class _RegisterState extends State<Register> {
                             borderSide: BorderSide(color: Colors.grey.shade200),
                           ),
                         ),
+                        keyboardType: TextInputType.emailAddress,
+                        onFieldSubmitted: (value) {
+                          //Validator
+                        },
                       ),
                     ),
                     Container(
@@ -211,9 +226,10 @@ class _RegisterState extends State<Register> {
                               });
                               _authService
                                   .register(
-                                      email: _emailController.text,
-                                      fullname: _fullnameController.text,
-                                      password: _UserPasswordController.text)
+                                email: _emailController.text,
+                                fullname: _fullnameController.text,
+                                password: _UserPasswordController.text,
+                              )
                                   .then((value) {
                                 if (value) {
                                   Navigator.pushReplacement(
