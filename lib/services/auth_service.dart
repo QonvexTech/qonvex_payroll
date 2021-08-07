@@ -46,6 +46,7 @@ class AuthService {
         LoggedUser.accessToken = "${data['access_token']}";
       }
       return response.statusCode == 200;
-    });
+    }
+    );
   }
 }

@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:qonvex_payroll/Login_page.dart';
-import 'package:qonvex_payroll/landing_page.dart';
+import 'package:qonvex_payroll/check_email.dart';
 import 'package:qonvex_payroll/register.dart';
 import 'package:qonvex_payroll/services/auth_service.dart';
 
@@ -13,7 +13,7 @@ class ForgotPassword extends StatefulWidget {
 
 class _ForgotPasswordState extends State<ForgotPassword> {
   final TextEditingController _emailController = new TextEditingController();
-  final TextEditingController _UserPasswordController =
+  final TextEditingController _userPasswordController =
       new TextEditingController();
   final AuthService _authService = AuthService();
   bool _isLoading = false;
@@ -76,7 +76,15 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             fontSize: 40,
                             color: Colors.white)),
                     SizedBox(
-                      height: 180,
+                      height: 110,
+                    ),
+                    Text(
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 15),
+                    ),
+                    SizedBox(
+                      height: 40,
                     ),
                     Container(
                       width: double.infinity,
@@ -115,13 +123,13 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                               _authService
                                   .login(
                                       email: _emailController.text,
-                                      password: _UserPasswordController.text)
+                                      password: _userPasswordController.text)
                                   .then((value) {
                                 if (value) {
                                   Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (_) => Landing_Page()));
+                                          builder: (_) => CheckEmail()));
                                 }
                               }).whenComplete(
                                       () => setState(() => _isLoading = false));

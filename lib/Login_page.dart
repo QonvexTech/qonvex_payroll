@@ -15,7 +15,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _passwordVisible = false;
-  final TextEditingController _UserPasswordController =
+  final TextEditingController _userPasswordController =
       new TextEditingController();
   final TextEditingController _emailController = new TextEditingController();
   final AuthService _authService = AuthService();
@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                 Container(
                   width: double.infinity,
                   child: TextField(
-                    controller: _UserPasswordController,
+                    controller: _userPasswordController,
                     obscureText: !_passwordVisible,
                     decoration: InputDecoration(
                       labelText: 'Password',
@@ -117,7 +117,7 @@ class _LoginPageState extends State<LoginPage> {
                           _authService
                               .login(
                                   email: _emailController.text,
-                                  password: _UserPasswordController.text)
+                                  password: _userPasswordController.text)
                               .then((value) {
                             if (value) {
                               Navigator.pushReplacement(

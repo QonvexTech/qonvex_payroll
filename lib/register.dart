@@ -14,7 +14,7 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-  final TextEditingController _UserPasswordController =
+  final TextEditingController _userPasswordController =
       new TextEditingController();
   final TextEditingController _emailController = new TextEditingController();
   final TextEditingController _fullnameController = new TextEditingController();
@@ -138,6 +138,7 @@ class _RegisterState extends State<Register> {
                           ),
                         )),
                     Container(
+<<<<<<< HEAD
                       width: double.infinity,
                       child: TextFormField(
                         controller: _UserPasswordController,
@@ -173,6 +174,26 @@ class _RegisterState extends State<Register> {
                         ),
                       ),
                     ),
+=======
+                        width: double.infinity,
+                        child: TextFormField(
+                            controller: _userPasswordController,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              labelText: "Password",
+                              labelStyle: TextStyle(
+                                color: Colors.grey.shade200,
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.grey.shade200),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.grey.shade200),
+                              ),
+                            ))),
+>>>>>>> 16cb7830788819063904148a290ff902f14e3cce
                     Container(
                       width: double.infinity,
                       child: TextFormField(
@@ -226,10 +247,16 @@ class _RegisterState extends State<Register> {
                               });
                               _authService
                                   .register(
+<<<<<<< HEAD
                                 email: _emailController.text,
                                 fullname: _fullnameController.text,
                                 password: _UserPasswordController.text,
                               )
+=======
+                                      email: _emailController.text,
+                                      fullname: _fullnameController.text,
+                                      password: _userPasswordController.text)
+>>>>>>> 16cb7830788819063904148a290ff902f14e3cce
                                   .then((value) {
                                 if (value) {
                                   Navigator.pushReplacement(
