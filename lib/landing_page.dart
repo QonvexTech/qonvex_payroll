@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qonvex_payroll/QR_View.dart';
 import 'package:qonvex_payroll/profile.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+
 
 class Landing_Page extends StatefulWidget {
   @override

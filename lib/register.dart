@@ -14,7 +14,7 @@ class Register extends StatefulWidget {
 
 class _RegisterState extends State<Register> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-  final TextEditingController _UserPasswordController =
+  final TextEditingController _userPasswordController =
       new TextEditingController();
   final TextEditingController _emailController = new TextEditingController();
   final TextEditingController _fullnameController = new TextEditingController();
@@ -120,7 +120,7 @@ class _RegisterState extends State<Register> {
                     Container(
                         width: double.infinity,
                         child: TextFormField(
-                            controller: _UserPasswordController,
+                            controller: _userPasswordController,
                             obscureText: true,
                             decoration: InputDecoration(
                               labelText: "Password",
@@ -186,7 +186,7 @@ class _RegisterState extends State<Register> {
                                   .register(
                                       email: _emailController.text,
                                       fullname: _fullnameController.text,
-                                      password: _UserPasswordController.text)
+                                      password: _userPasswordController.text)
                                   .then((value) {
                                 if (value) {
                                   Navigator.pushReplacement(
