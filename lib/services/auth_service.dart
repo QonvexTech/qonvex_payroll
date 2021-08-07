@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:qonvex_payroll/globals/constants.dart';
 import 'package:qonvex_payroll/globals/logged_user.dart';
@@ -19,8 +20,12 @@ class AuthService {
         if (response.statusCode == 200) {
           LoggedUser.details = UserModel.fromJson(data['user']);
           LoggedUser.accessToken = "${data['access_token']}";
+          return true;
         }
-        return response.statusCode == 200;
+        if(data['message'] != null){
+          Fluttertoast.showToast(msg: "${data['message']}");
+        }
+        return false;
       });
     } catch (e) {
       return false;

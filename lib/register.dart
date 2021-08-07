@@ -137,44 +137,7 @@ class _RegisterState extends State<Register> {
                             ),
                           ),
                         )),
-                    Container(
-<<<<<<< HEAD
-                      width: double.infinity,
-                      child: TextFormField(
-                        controller: _UserPasswordController,
-                        // validator: FieldValidator.password(
-                        //     minLength: 8,
-                        //     shouldContainNumber: true,
-                        //     shouldContainCapitalLetter: true,
-                        //     shouldContainSmallLetter: true,
-                        //     shouldContainSpecialChars: true,
-                        //     errorMessage:
-                        //         "Password must match the required format",
-                        //     isNumberNotPresent: () {
-                        //       return "Password must contain number";
-                        //     },
-                        //     isSpecialCharsNotPresent: () {
-                        //       return "Password must contain special characters";
-                        //     },
-                        //     isCapitalLetterNotPresent: () {
-                        //       return "Password must contain capital letters";
-                        //     }),
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          labelText: "Password",
-                          labelStyle: TextStyle(
-                            color: Colors.grey.shade200,
-                          ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey.shade200),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey.shade200),
-                          ),
-                        ),
-                      ),
-                    ),
-=======
+                        Container(
                         width: double.infinity,
                         child: TextFormField(
                             controller: _userPasswordController,
@@ -193,7 +156,6 @@ class _RegisterState extends State<Register> {
                                     BorderSide(color: Colors.grey.shade200),
                               ),
                             ))),
->>>>>>> 16cb7830788819063904148a290ff902f14e3cce
                     Container(
                       width: double.infinity,
                       child: TextFormField(
@@ -247,16 +209,10 @@ class _RegisterState extends State<Register> {
                               });
                               _authService
                                   .register(
-<<<<<<< HEAD
                                 email: _emailController.text,
                                 fullname: _fullnameController.text,
-                                password: _UserPasswordController.text,
+                                password: _userPasswordController.text,
                               )
-=======
-                                      email: _emailController.text,
-                                      fullname: _fullnameController.text,
-                                      password: _userPasswordController.text)
->>>>>>> 16cb7830788819063904148a290ff902f14e3cce
                                   .then((value) {
                                 if (value) {
                                   Navigator.pushReplacement(
