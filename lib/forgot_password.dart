@@ -10,14 +10,12 @@ class ForgotPassword extends StatefulWidget {
   @override
   _ForgotPasswordState createState() => _ForgotPasswordState();
 }
-
 class _ForgotPasswordState extends State<ForgotPassword> {
   final TextEditingController _emailController = new TextEditingController();
   final TextEditingController _userPasswordController =
       new TextEditingController();
   final AuthService _authService = AuthService();
   bool _isLoading = false;
-
   @override
   Widget build(BuildContext context) {
     MediaQueryData deviceInfo = MediaQuery.of(context);
@@ -49,11 +47,13 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                 MaterialPageRoute(
                                   builder: (context) => LoginPage(),
                                 ),
-                              )),
+                              )
+                      ),
                       leadingWidth: 190,
                       backgroundColor: Colors.transparent,
                       elevation: 0,
-                    )),
+                    )
+                ),
               ),
               body: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -74,7 +74,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         style: TextStyle(
                             fontWeight: FontWeight.w900,
                             fontSize: 40,
-                            color: Colors.white)),
+                            color: Colors.white)
+                    ),
                     SizedBox(
                       height: 110,
                     ),
@@ -135,7 +136,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                       () => setState(() => _isLoading = false));
                             },
                           ),
-                        ])),
+                        ]
+                        )
+                    ),
                     SizedBox(
                       height: 90,
                     ),
@@ -161,7 +164,10 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         mainAxisAlignment: MainAxisAlignment.center,
                       ),
                     )
-                  ]))),
+                  ]
+                  )
+              )
+          ),
           _isLoading
               ? Container(
                   color: Colors.black54,

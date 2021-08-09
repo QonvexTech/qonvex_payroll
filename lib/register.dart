@@ -7,11 +7,9 @@ import 'dart:ui';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
-
   @override
   _RegisterState createState() => _RegisterState();
 }
-
 class _RegisterState extends State<Register> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   final TextEditingController _userPasswordController =
@@ -21,31 +19,16 @@ class _RegisterState extends State<Register> {
   final TextEditingController _confirmPassController =
       new TextEditingController();
   final AuthService _authService = AuthService();
-  final _formKey = GlobalKey<FormState>();
-
   bool spooner = false;
-
-  var isLoading = false;
-
-  void _submit() {
-    final isValid = _formKey.currentState!.validate();
-    if (!isValid) {
-      return;
-    }
-    _formKey.currentState!.save();
-  }
-
   @override
   Widget build(BuildContext context) {
     MediaQueryData deviceInfo = MediaQuery.of(context);
     print('size: ${deviceInfo.size}');
     print('padding: ${deviceInfo.padding}');
-
     return SafeArea(
       child: Stack(
         children: [
           Scaffold(
-            //resizeToAvoidBottomInset: false,
             extendBodyBehindAppBar: true,
             appBar: PreferredSize(
               preferredSize: Size.fromHeight(100.0),
@@ -53,7 +36,7 @@ class _RegisterState extends State<Register> {
                   padding: EdgeInsets.only(top: 30),
                   child: AppBar(
                     toolbarHeight: 85,
-                    automaticallyImplyLeading: false, // hides leading widget
+                    automaticallyImplyLeading: false,
                     leading: IconButton(
                         icon: Icon(
                           Icons.arrow_back_ios,
@@ -63,11 +46,14 @@ class _RegisterState extends State<Register> {
                         onPressed: () =>
                             Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => LoginPage(),
-                            ))),
+                            )
+                            )
+                    ),
                     leadingWidth: 190,
                     backgroundColor: Colors.transparent,
                     elevation: 0,
-                  )),
+                  )
+              ),
             ),
             body: Container(
               constraints: BoxConstraints.expand(),
@@ -99,7 +85,6 @@ class _RegisterState extends State<Register> {
                       width: double.infinity,
                       child: TextFormField(
                         controller: _emailController,
-                        // validator: FieldValidator.email(),
                         decoration: InputDecoration(
                           labelText: "Email",
                           labelStyle: TextStyle(
@@ -114,7 +99,6 @@ class _RegisterState extends State<Register> {
                         ),
                         keyboardType: TextInputType.emailAddress,
                         onFieldSubmitted: (value) {
-                          //Validator
                         },
                       ),
                     ),
@@ -136,8 +120,9 @@ class _RegisterState extends State<Register> {
                                   BorderSide(color: Colors.grey.shade200),
                             ),
                           ),
-                        )),
-                        Container(
+                        )
+                    ),
+                    Container(
                         width: double.infinity,
                         child: TextFormField(
                             controller: _userPasswordController,
@@ -155,15 +140,14 @@ class _RegisterState extends State<Register> {
                                 borderSide:
                                     BorderSide(color: Colors.grey.shade200),
                               ),
-                            ))),
+                            )
+                        )
+                    ),
                     Container(
                       width: double.infinity,
                       child: TextFormField(
                           controller: _confirmPassController,
                           obscureText: true,
-                          // validator: FieldValidator.equalTo(
-                          //     _confirmPassController,
-                          //     message: "Password Mismatch"),
                           decoration: InputDecoration(
                             labelText: "Confirm Password",
                             labelStyle: TextStyle(
@@ -177,7 +161,8 @@ class _RegisterState extends State<Register> {
                               borderSide:
                                   BorderSide(color: Colors.grey.shade200),
                             ),
-                          )),
+                          )
+                      ),
                     ),
                     SizedBox(
                       height: 20,
@@ -225,7 +210,8 @@ class _RegisterState extends State<Register> {
                             },
                           )
                         ],
-                      )),
+                      )
+                      ),
                     ),
                     SizedBox(
                       height: 90,
@@ -235,7 +221,7 @@ class _RegisterState extends State<Register> {
                       children: <Widget>[
                         Text('Already have an account?'),
                         FlatButton(
-                            textColor: Colors.blue,
+                              textColor: Colors.blue,
                             child: Text(
                               'Sign in',
                               style: TextStyle(fontSize: 17),
@@ -246,8 +232,10 @@ class _RegisterState extends State<Register> {
                                 )))
                       ],
                       mainAxisAlignment: MainAxisAlignment.center,
-                    ))
-                  ]),
+                    )
+                    )
+                  ]
+                  ),
                 ),
               ),
             ),

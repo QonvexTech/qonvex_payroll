@@ -5,6 +5,7 @@ import 'package:qonvex_payroll/edit_profile.dart';
 import 'package:qonvex_payroll/check_email.dart';
 import 'package:qonvex_payroll/forgot_password.dart';
 import 'package:qonvex_payroll/general.dart';
+import 'package:qonvex_payroll/history.dart';
 import 'package:qonvex_payroll/landing_page.dart';
 import 'package:qonvex_payroll/payroll.dart';
 import 'package:qonvex_payroll/reset_password.dart';
@@ -39,11 +40,7 @@ class MyApp extends StatelessWidget {
   }
 }
 class Data extends ChangeNotifier {
-  Map data = {
-    'address': 'Brgy. Obrero',
-    'mailing address': 'Magsaysay St. blk 2',
-    'lorem ipsum': 'wala lang'
-  };
+  Map data = {'address': '', 'mailing address': '', 'lorem ipsum': ''};
 
   void updateAccount(input) {
     data = input;

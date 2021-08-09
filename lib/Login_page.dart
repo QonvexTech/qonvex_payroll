@@ -5,14 +5,12 @@ import 'package:flutter/widgets.dart';
 import 'package:qonvex_payroll/forgot_password.dart';
 import 'package:qonvex_payroll/landing_page.dart';
 import 'package:qonvex_payroll/services/auth_service.dart';
-
 import 'register.dart';
 
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
-
 class _LoginPageState extends State<LoginPage> {
   bool _passwordVisible = false;
   final TextEditingController _userPasswordController =
@@ -20,7 +18,6 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = new TextEditingController();
   final AuthService _authService = AuthService();
   bool _isLoading = false;
-
   @override
   Widget build(BuildContext context) {
     MediaQueryData deviceInfo = MediaQuery.of(context);
@@ -168,8 +165,10 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                   ),
                 ),
-              ]),
-            )),
+              ]
+              ),
+            )
+            ),
             _isLoading
                 ? Container(
                     color: Colors.black54,
@@ -182,6 +181,7 @@ class _LoginPageState extends State<LoginPage> {
                   )
                 : Container()
           ],
-        ));
+        )
+    );
   }
 }

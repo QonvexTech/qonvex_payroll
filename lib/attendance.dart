@@ -321,6 +321,7 @@ class _AttendanceState extends State<Attendance> {
           )
         ],
       ),
-    ));
+    )
+    );
   }
 }

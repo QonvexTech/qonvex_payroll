@@ -8,10 +8,8 @@ class PayrollPage extends StatefulWidget {
   @override
   _PayrollPageState createState() => _PayrollPageState();
 }
-
 class _PayrollPageState extends State<PayrollPage> {
   DateTime selectedDate = DateTime.now();
-
   Future<void> _selectDate(BuildContext context) async {
     SystemChrome.setEnabledSystemUIOverlays([]);
     final DateTime? picked = await showDatePicker(
@@ -24,7 +22,6 @@ class _PayrollPageState extends State<PayrollPage> {
         selectedDate = picked;
       });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +29,9 @@ class _PayrollPageState extends State<PayrollPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
           ElevatedButton.icon(
-            style: ButtonStyle(backgroundColor: MaterialStateProperty.resolveWith((states) => Colors.transparent), elevation: MaterialStateProperty.resolveWith((states) => 0)),
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.resolveWith((states)
+                => Colors.transparent), elevation: MaterialStateProperty.resolveWith((states) => 0)),
             onPressed: () => _selectDate(context),
             label: Text("${selectedDate.toLocal()}".split(' ')[0], style: TextStyle(color: Colors.black),),
             icon: const Icon(Icons.arrow_drop_down, color: Colors.black,),
@@ -40,7 +39,8 @@ class _PayrollPageState extends State<PayrollPage> {
           Expanded(
             child: Container(
                 padding: EdgeInsets.fromLTRB(20, 0, 15, 10),
-                child: ListView(children: [
+                child: ListView(
+                    children: [
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -203,7 +203,9 @@ class _PayrollPageState extends State<PayrollPage> {
                       ),
                     ],
                   ),
-                  Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
                     Expanded(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -232,7 +234,9 @@ class _PayrollPageState extends State<PayrollPage> {
                             '6000.0',
                             style: TextStyle(color: Colors.blue),
                           ),
-                        ])),
+                        ]
+                        )
+                    ),
                     Expanded(
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -247,23 +251,34 @@ class _PayrollPageState extends State<PayrollPage> {
                             SizedBox(
                               height: 30,
                             )
-                          ]),
+                          ]
+                      ),
                     ),
-                  ]),
-                  Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                  ]
+                  ),
+                  Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
                     Expanded(
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: const <Widget>[
                           Text(
-                            'Five Thousand Eight HUndred Fifty Pesos',
+                            'Five Thousand Eight Hundred Fifty Pesos',
                             style: TextStyle(color: Colors.grey),
                           ),
-                        ]))
-                  ])
-                ])),
+                        ]
+                        )
+                    )
+                  ]
+                  )
+                ]
+                )
+            ),
           )
-        ]));
+        ]
+        )
+    );
   }
 }

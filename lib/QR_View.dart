@@ -7,7 +7,6 @@ class QRViewPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _QRViewPageState();
 }
-
 class _QRViewPageState extends State<QRViewPage> {
   Barcode? result;
   QRViewController? controller;
@@ -20,7 +19,8 @@ class _QRViewPageState extends State<QRViewPage> {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Container(child: _buildQrView(context)),
+          Container(
+              child: _buildQrView(context)),
           Positioned(
             top: size.height / 2 + 150,
             left: 0,
@@ -58,14 +58,16 @@ class _QRViewPageState extends State<QRViewPage> {
                                     child: Icon(
                                   Icons.flash_on,
                                   color: Colors.white,
-                                )),
+                                )
+                                ),
                                 Text(
                                   "Flash",
                                   style: TextStyle(color: Colors.white),
                                 )
                               ],
                             ),
-                          ))
+                          )
+                      )
                     ],
                   ),
                   Container(
@@ -102,13 +104,10 @@ class _QRViewPageState extends State<QRViewPage> {
   }
 
   Widget _buildQrView(BuildContext context) {
-    // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
     var scanArea = (MediaQuery.of(context).size.width < 400 ||
             MediaQuery.of(context).size.height < 400)
         ? 150.0
         : 300.0;
-    //To ensure the Scanner view is properly sizes after rotation
-    // we need to listen for Flutter SizeChanged notification and update controller
     return QRView(
       key: qrKey,
       onQRViewCreated: _onQRViewPageCreated,

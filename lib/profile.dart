@@ -1,5 +1,3 @@
-// import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:qonvex_payroll/Login_page.dart';
 import 'package:qonvex_payroll/globals/logged_user.dart';
@@ -13,30 +11,22 @@ class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => _ProfileState();
 }
-
 class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   TabController? _tabController;
-
-  // int _selectedIndex = 0;
-
   List<Widget> _tabs = [
     GeneralPage(),
-    // ContactsPage(),
     Attendance(),
     PayrollPage()
   ];
-
   @override
   void initState() {
     super.initState();
     _tabController = new TabController(vsync: this, length: 3);
     _tabController!.addListener(_handleTabSelection);
   }
-
   void _handleTabSelection() {
     setState(() {});
   }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -78,22 +68,17 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => LoginPage()));
-                            }),
+                            }
+                            ),
                       )
                     ],
                   ),
-                ]),
+                ]
+            ),
           ),
         ),
-        // floatingActionButton: FloatingActionButton(
-        //     onPressed: () {
-        //       // Add your onPressed code here!
-        //     },
-        //     child: const Icon(Icons.edit_rounded),
-        //     backgroundColor: Colors.blue),
         body: Column(
           children: <Widget>[
-            // construct the profile details widget here
             SizedBox(
                 height: 280,
                 child: Column(
@@ -106,7 +91,9 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                           height: 150,
                           width: 150,
                           fit: BoxFit.cover,
-                        ))),
+                        )
+                        )
+                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -119,7 +106,8 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                         Text('${LoggedUser?.details!.email ?? "---"}',
                             style: TextStyle(
                                 color: Colors.blue,
-                                fontStyle: FontStyle.italic)),
+                                fontStyle: FontStyle.italic)
+                        ),
                       ],
                     ),
                     SizedBox(height: 10.0),
@@ -130,13 +118,15 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                             Text('Employee ID:',
                                 style: TextStyle(
                                   color: Colors.grey,
-                                )),
+                                )
+                            ),
                             Text(
                               '${LoggedUser?.details!.ID ?? "---"}'
                                   .padLeft(5, "0"),
                               style: TextStyle(color: Colors.black),
                             )
-                          ]),
+                          ]
+                      ),
                     ),
                     Divider(
                       height: 20,
@@ -198,21 +188,18 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                       ),
                     ),
                   ],
-                )),
+                )
+            ),
             Divider(
               color: Colors.blue,
-              // height: 20,
               thickness: 5,
               indent: 1,
               endIndent: 1,
             ),
-            // the tab bar with two items
             SizedBox(
               height: 75,
               child: AppBar(
                 backgroundColor: Colors.white,
-                // elevation: 0,
-
                 bottom: TabBar(
                   controller: _tabController,
                   unselectedLabelColor: Colors.grey,
@@ -222,7 +209,6 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                     Tab(
                       icon: Icon(
                         Icons.person_outline,
-                        // size: 35,
                         color: _tabController!.index == 0
                             ? Colors.blue
                             : Colors.grey,
@@ -238,8 +224,6 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                     ),
                     Tab(
                       icon: Icon(Icons.account_balance_wallet_rounded,
-
-                          // size: 35,
                           color: _tabController!.index == 2
                               ? Colors.blue
                               : Colors.grey),
@@ -249,13 +233,13 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 ),
               ),
             ),
-
             Expanded(
               child: TabBarView(controller: _tabController, children: _tabs),
             )
           ],
         ),
       ),
-    ));
+    )
+    );
   }
 }
