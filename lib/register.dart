@@ -86,32 +86,10 @@ class _RegisterState extends State<Register> {
                     Container(
                       width: double.infinity,
                       child: TextFormField(
-                        controller: _emailController,
-                        // validator: FieldValidator.email(),
-                        decoration: InputDecoration(
-                          labelText: "Email",
-                          labelStyle: TextStyle(
-                            color: Colors.grey.shade200,
-                          ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey.shade200),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.grey.shade200),
-                          ),
-                        ),
-                        keyboardType: TextInputType.emailAddress,
-                        onFieldSubmitted: (value) {
-                          //Validator
-                        },
-                      ),
-                    ),
-                    Container(
-                        width: double.infinity,
-                        child: TextFormField(
-                          controller: _fullnameController,
+                          controller: _emailController,
+                          // validator: FieldValidator.email(),
                           decoration: InputDecoration(
-                            labelText: "Full Name",
+                            labelText: "Email",
                             labelStyle: TextStyle(
                               color: Colors.grey.shade200,
                             ),
@@ -124,7 +102,38 @@ class _RegisterState extends State<Register> {
                                   BorderSide(color: Colors.grey.shade200),
                             ),
                           ),
-                        )),
+                          // keyboardType: TextInputType.emailAddress,
+                          // onFieldSubmitted: (value) {
+                          //   //Validator
+                          // },
+                          validator: (validator) {
+                            if (validator!.isEmpty) return 'Enter an Email';
+                            return null;
+                          }),
+                    ),
+                    Container(
+                        width: double.infinity,
+                        child: TextFormField(
+                            controller: _fullnameController,
+                            decoration: InputDecoration(
+                              labelText: "Full Name",
+                              labelStyle: TextStyle(
+                                color: Colors.grey.shade200,
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.grey.shade200),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.grey.shade200),
+                              ),
+                            ),
+                            validator: (validator) {
+                              if (validator!.isEmpty)
+                                return 'Please Enter your Fullname';
+                              return null;
+                            })),
                     Container(
                         width: double.infinity,
                         child: TextFormField(
@@ -143,15 +152,16 @@ class _RegisterState extends State<Register> {
                                 borderSide:
                                     BorderSide(color: Colors.grey.shade200),
                               ),
-                            ))),
+                            ),
+                            validator: (validator) {
+                              if (validator!.isEmpty) return 'Empty';
+                              return null;
+                            })),
                     Container(
                       width: double.infinity,
                       child: TextFormField(
                           controller: _confirmPassController,
                           obscureText: true,
-                          // validator: FieldValidator.equalTo(
-                          //     _confirmPassController,
-                          //     message: "Password Mismatch"),
                           decoration: InputDecoration(
                             labelText: "Confirm Password",
                             labelStyle: TextStyle(
@@ -165,7 +175,13 @@ class _RegisterState extends State<Register> {
                               borderSide:
                                   BorderSide(color: Colors.grey.shade200),
                             ),
-                          )),
+                          ),
+                          validator: (validator) {
+                            if (validator!.isEmpty) return 'Empty';
+                            if (validator != _userPasswordController.text)
+                              return 'The passwords do not match';
+                            return null;
+                          }),
                     ),
                     SizedBox(
                       height: 20,
@@ -192,6 +208,7 @@ class _RegisterState extends State<Register> {
                                 backgroundColor: Colors.grey),
                             iconSize: 50,
                             onPressed: () {
+                              _formkey.currentState!.validate();
                               setState(() {
                                 spooner = true;
                               });

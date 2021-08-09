@@ -1,11 +1,14 @@
 // import 'dart:typed_data';
 
+// import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:qonvex_payroll/Login_page.dart';
 import 'package:qonvex_payroll/globals/logged_user.dart';
 import 'attendance.dart';
 import 'general.dart';
 import 'payroll.dart';
+// import 'package:image_picker/image_picker.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -16,6 +19,7 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   TabController? _tabController;
+  // TextEditingController _addressController = new TextEditingController();
 
   // int _selectedIndex = 0;
 
@@ -36,6 +40,15 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   void _handleTabSelection() {
     setState(() {});
   }
+
+  // late File _image;
+  // Future getImageFromCam() async { // for camera    var image = await ImagePicker.pickImage(source: ImageSource.camera);    setState(() {
+  //     _image = _image;
+  //     }
+
+  //     Future getImageFromGallery() async {// for gallery    var image = await ImagePicker.pickImage(source: ImageSource.gallery);    setState(() {
+  //     _image = _image;
+  //     }
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +100,6 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
         ),
         body: Column(
           children: <Widget>[
-            // construct the profile details widget here
             SizedBox(
                 height: 280,
                 child: Column(
@@ -200,13 +212,10 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
               indent: 1,
               endIndent: 1,
             ),
-            // the tab bar with two items
             SizedBox(
               height: 75,
               child: AppBar(
                 backgroundColor: Colors.white,
-                // elevation: 0,
-
                 bottom: TabBar(
                   controller: _tabController,
                   unselectedLabelColor: Colors.grey,
@@ -232,8 +241,6 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                     ),
                     Tab(
                       icon: Icon(Icons.account_balance_wallet_rounded,
-
-                          // size: 35,
                           color: _tabController!.index == 2
                               ? Colors.blue
                               : Colors.grey),
@@ -243,7 +250,6 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 ),
               ),
             ),
-
             Expanded(
               child: TabBarView(controller: _tabController, children: _tabs),
             )

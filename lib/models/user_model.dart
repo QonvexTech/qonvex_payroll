@@ -16,6 +16,8 @@ class UserModel {
         email: parseJson['email'],
         roles: parseJson['roles']);
   }
+
+  get address => null;
   Map<String, dynamic> toJson() => {
         'id': ID,
         'name': name,
