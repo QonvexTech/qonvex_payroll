@@ -5,7 +5,6 @@ class HistoryPage extends StatefulWidget {
   @override
   _HistoryPageState createState() => _HistoryPageState();
 }
-
 class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
@@ -23,27 +22,27 @@ class _HistoryPageState extends State<HistoryPage> {
                   Container(
                     height: 40,
                     color: Colors.grey.shade100,
-                    child: const Center(child: Text('ncljcsclscksck'),)
+                    child: const Center(child: Text('princess'),)
                   ),
                   Container(
                     height: 40,
                     color: Colors.grey.shade100,
-                    child: const Center(child: Text('jdjdhgfdhgfdhdd'),),
+                    child: const Center(child: Text('maemae'),),
                   ),
                   Container(
                     height: 40,
                     color: Colors.grey.shade100,
-                    child: const Center(child: Text('kjdsdhjskhdsks'),),
+                    child: const Center(child: Text('licile'),),
                   ),
                   Container(
                     height: 40,
                     color: Colors.grey.shade100,
-                    child: const Center(child: Text('jdjshdjsdhskjd'),),
+                    child: const Center(child: Text('lili'),),
                   ),
                   Container(
                     height: 40,
                     color: Colors.grey.shade100,
-                    child: const Center(child: Text('njsdshdhsdsdsg'),),
+                    child: const Center(child: Text('lili x mae'),),
                   )
                 ],
         ),

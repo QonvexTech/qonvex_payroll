@@ -102,7 +102,6 @@ class _QRViewPageState extends State<QRViewPage> {
       ),
     );
   }
-
   Widget _buildQrView(BuildContext context) {
     var scanArea = (MediaQuery.of(context).size.width < 400 ||
             MediaQuery.of(context).size.height < 400)
@@ -120,7 +119,6 @@ class _QRViewPageState extends State<QRViewPage> {
       onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
     );
   }
-
   void _onQRViewPageCreated(QRViewController controller) {
     setState(() {
       this.controller = controller;
@@ -131,7 +129,6 @@ class _QRViewPageState extends State<QRViewPage> {
       });
     });
   }
-
   void _onPermissionSet(BuildContext context, QRViewController ctrl, bool p) {
     print('${DateTime.now().toIso8601String()}_onPermissionSet $p');
     if (!p) {
@@ -140,7 +137,6 @@ class _QRViewPageState extends State<QRViewPage> {
       );
     }
   }
-
   @override
   void dispose() {
     controller?.dispose();

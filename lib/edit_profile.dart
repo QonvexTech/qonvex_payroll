@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:qonvex_payroll/globals/logged_user.dart';
 import 'package:qonvex_payroll/profile.dart';
 import 'main.dart';
 
-class EditProfile extends StatelessWidget {
+class EditProfile extends StatefulWidget {
   static const String id = 'settings_screen';
+
+  @override
+  _EditProfileState createState() => _EditProfileState();
+}
+
+class _EditProfileState extends State<EditProfile> {
   final formKey = GlobalKey<FormState>();
+
   final Map data = {'Address': String, 'MailingAdd': String, 'Ipsum': String};
+
   TextEditingController _addressController = new TextEditingController();
+
   TextEditingController _mailingAddressController = new TextEditingController();
+
   TextEditingController _ipsumController = new TextEditingController();
 
   @override
@@ -71,6 +82,7 @@ class EditProfile extends StatelessWidget {
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
+
                         Provider.of<Data>(context, listen: false)
                             .updateAccount(data);
                         formKey.currentState!.reset();

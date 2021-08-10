@@ -9,6 +9,7 @@ import 'package:qonvex_payroll/history.dart';
 import 'package:qonvex_payroll/landing_page.dart';
 import 'package:qonvex_payroll/payroll.dart';
 import 'package:qonvex_payroll/reset_password.dart';
+import 'package:qonvex_payroll/view_model/history_view_model.dart';
 import 'register.dart';
 import 'profile.dart';
 import 'package:flutter/services.dart';
