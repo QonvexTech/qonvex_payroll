@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qonvex_payroll/globals/logged_user.dart';
 import 'package:qonvex_payroll/profile.dart';
-
 import 'main.dart';
 
 class EditProfile extends StatefulWidget {
@@ -25,16 +24,15 @@ class _EditProfileState extends State<EditProfile> {
 
   @override
   void initState() {
-    // super.initState();
     _addressController = TextEditingController();
     _mailingAddressController = TextEditingController();
     _ipsumController = TextEditingController();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Change Account Details')),
+      appBar: AppBar(
+          title: Text('Change Account Details')),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
         child: Form(
@@ -99,7 +97,8 @@ class _EditProfileState extends State<EditProfile> {
                     ),
                   ),
                 )
-              ]),
+              ]
+          ),
         ),
       ),
     );

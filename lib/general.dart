@@ -6,7 +6,6 @@ import 'main.dart';
 
 class GeneralPage extends StatefulWidget {
   const GeneralPage({Key? key}) : super(key: key);
-
   @override
   _GeneralPageState createState() => _GeneralPageState();
 }

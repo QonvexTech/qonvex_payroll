@@ -5,6 +5,7 @@ import 'package:qonvex_payroll/edit_profile.dart';
 import 'package:qonvex_payroll/check_email.dart';
 import 'package:qonvex_payroll/forgot_password.dart';
 import 'package:qonvex_payroll/general.dart';
+import 'package:qonvex_payroll/history.dart';
 import 'package:qonvex_payroll/landing_page.dart';
 import 'package:qonvex_payroll/payroll.dart';
 import 'package:qonvex_payroll/reset_password.dart';

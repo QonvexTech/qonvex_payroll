@@ -5,7 +5,6 @@ import 'package:flutter/widgets.dart';
 import 'package:qonvex_payroll/forgot_password.dart';
 import 'package:qonvex_payroll/landing_page.dart';
 import 'package:qonvex_payroll/services/auth_service.dart';
-
 import 'register.dart';
 
 class LoginPage extends StatefulWidget {
@@ -20,7 +19,6 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = new TextEditingController();
   final AuthService _authService = AuthService();
   bool _isLoading = false;
-
   @override
   Widget build(BuildContext context) {
     MediaQueryData deviceInfo = MediaQuery.of(context);

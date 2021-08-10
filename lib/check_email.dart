@@ -33,57 +33,94 @@ class _CheckEmailState extends State<CheckEmail> {
         ),
       ),
       Container(
-          child: ListView(children: [
-        SizedBox(
-          height: 280,
-        ),
-        Center(
-          child: Text('Check your mail',
-              style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                  fontSize: 35,
-                  color: Colors.black)),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          'We have sent you a password recover\n Instructions to your email',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 15),
-        ),
+        child: ListView(
+          children: [
+            SizedBox(
+              height: 280,
+            ),
+            Center(
+              child: Text('Check your mail',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 35,
+                      color: Colors.black)),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              'We have sent you a password recover\n Instructions to your email',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 15),
+            ),
             SizedBox(
               height: 10,
             ),
             Padding(
               padding: const EdgeInsets.all(40),
               child: Container(
-                  child:
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Open email app',
-                          style: TextStyle(
-                              color: Colors.blueAccent, fontSize: 30, fontWeight: FontWeight.bold),
-                        ),
-                        IconButton(
-                          icon: CircleAvatar(
-                            child: Icon(
-                              Icons.arrow_forward_ios_rounded,
-                              color: Colors.white,
-                            ),
-                            backgroundColor: Colors.grey,
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Open email app',
+                        style: TextStyle(
+                            color: Colors.blueAccent,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      IconButton(
+                        icon: CircleAvatar(
+                          child: Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            color: Colors.white,
                           ),
-                          iconSize: 30,
-                          onPressed: () {},
-                        )
-                      ])),
-            )
-      ],
-          ),
+                          backgroundColor: Colors.grey,
+                        ),
+                        iconSize: 30,
+                        onPressed: () {},
+                      )
+                    ]),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 40),
+              child: Align(
+                alignment: AlignmentDirectional.centerStart,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Forgot Password',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 100,
+            ),
+            Container(
+              child: Row(
+                children: <Widget>[
+                  Text(
+                    "Don't have an account?",
+                  ),
+                  FlatButton(
+                      textColor: Colors.blue,
+                      child: Text(
+                        'Sign up',
+                        style: TextStyle(fontSize: 17),
+                      ),
+                      onPressed: () {},
+                  )
+                ],
+                mainAxisAlignment: MainAxisAlignment.center,
+              ),
+            ),
+          ],
+        ),
       ),
-
-    ]));
+    ])
+    );
   }
 }

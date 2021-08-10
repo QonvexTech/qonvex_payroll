@@ -1,14 +1,13 @@
 // import 'dart:typed_data';
 
-// import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:qonvex_payroll/Login_page.dart';
 import 'package:qonvex_payroll/globals/logged_user.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 import 'attendance.dart';
 import 'general.dart';
 import 'payroll.dart';
-// import 'package:image_picker/image_picker.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -17,18 +16,14 @@ class Profile extends StatefulWidget {
   _ProfileState createState() => _ProfileState();
 }
 
+enum ImageSourceType { gallery, camera }
+
 class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   TabController? _tabController;
   // TextEditingController _addressController = new TextEditingController();
 
   // int _selectedIndex = 0;
-
-  List<Widget> _tabs = [
-    GeneralPage(),
-    // ContactsPage(),
-    Attendance(),
-    PayrollPage()
-  ];
+  List<Widget> _tabs = [GeneralPage(), Attendance(), PayrollPage()];
 
   @override
   void initState() {
@@ -40,15 +35,6 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   void _handleTabSelection() {
     setState(() {});
   }
-
-  // late File _image;
-  // Future getImageFromCam() async { // for camera    var image = await ImagePicker.pickImage(source: ImageSource.camera);    setState(() {
-  //     _image = _image;
-  //     }
-
-  //     Future getImageFromGallery() async {// for gallery    var image = await ImagePicker.pickImage(source: ImageSource.gallery);    setState(() {
-  //     _image = _image;
-  //     }
 
   @override
   Widget build(BuildContext context) {
@@ -98,164 +84,166 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 ]),
           ),
         ),
-        body: Column(
-          children: <Widget>[
-            SizedBox(
-                height: 280,
-                child: Column(
-                  children: [
-                    CircleAvatar(
-                        radius: 70,
-                        child: ClipOval(
-                            child: Image.network(
-                          'https://jichangwookkitchen.files.wordpress.com/2020/12/20201201516452.jpg?w=584',
-                          height: 150,
-                          width: 150,
-                          fit: BoxFit.cover,
-                        ))),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                            '${LoggedUser?.details!.name ?? "---"}'
-                                .toUpperCase(),
-                            style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.bold)),
-                        SizedBox(height: 2.0),
-                        Text('${LoggedUser?.details!.email ?? "---"}',
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontStyle: FontStyle.italic)),
-                      ],
-                    ),
-                    SizedBox(height: 10.0),
-                    Container(
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text('Employee ID:',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                )),
-                            Text(
-                              '${LoggedUser?.details!.ID ?? "---"}'
-                                  .padLeft(5, "0"),
-                              style: TextStyle(color: Colors.black),
-                            )
-                          ]),
-                    ),
-                    Divider(
-                      height: 20,
-                      thickness: 3,
-                      indent: 20,
-                      endIndent: 20,
-                    ),
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Expanded(
-                            flex: 3,
-                            child: Column(
-                              children: [
-                                Text(
-                                  '7',
-                                  style: TextStyle(color: Colors.blue),
-                                  textAlign: TextAlign.center,
-                                ),
-                                Text(
-                                  'Designation',
-                                  style: TextStyle(color: Colors.grey),
-                                )
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: SizedBox(
-                              height: 30,
-                              child: VerticalDivider(
-                                thickness: 2,
-                                indent: 5,
-                                endIndent: 0,
-                                width: 20,
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 3,
-                            child: Column(
-                              children: [
-                                Text(
-                                  '06/017/2020',
-                                  style: TextStyle(color: Colors.blue),
-                                  textAlign: TextAlign.center,
-                                ),
-                                Text(
-                                  'Hired Date',
-                                  style: TextStyle(color: Colors.grey),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                )),
-            Divider(
-              color: Colors.blue,
-              // height: 20,
-              thickness: 5,
-              indent: 1,
-              endIndent: 1,
-            ),
-            SizedBox(
-              height: 75,
-              child: AppBar(
-                backgroundColor: Colors.white,
-                bottom: TabBar(
-                  controller: _tabController,
-                  unselectedLabelColor: Colors.grey,
-                  labelColor: Colors.blue,
-                  indicatorColor: Colors.blue,
-                  tabs: [
-                    Tab(
-                      icon: Icon(
-                        Icons.person_outline,
-                        // size: 35,
-                        color: _tabController!.index == 0
-                            ? Colors.blue
-                            : Colors.grey,
-                      ),
-                      text: 'General',
-                    ),
-                    Tab(
-                      icon: Icon(Icons.calendar_today_rounded,
-                          color: _tabController!.index == 1
-                              ? Colors.blue
-                              : Colors.grey),
-                      text: 'Attendance',
-                    ),
-                    Tab(
-                      icon: Icon(Icons.account_balance_wallet_rounded,
-                          color: _tabController!.index == 2
-                              ? Colors.blue
-                              : Colors.grey),
-                      text: 'Payroll',
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Expanded(
-              child: TabBarView(controller: _tabController, children: _tabs),
-            )
-          ],
+        body: 
+        // Container(
+        //   child: Column(
+        //     children: <Widget>[
+        //       SizedBox(
+        //           height: 280,
+        //           child: Column(
+        //             children: [
+        //               CircleAvatar(
+        //                   radius: 70,
+        //                   child: ClipOval(
+        //                       child: Image.network(
+        //                     'https://jichangwookkitchen.files.wordpress.com/2020/12/20201201516452.jpg?w=584',
+        //                     height: 150,
+        //                     width: 150,
+        //                     fit: BoxFit.cover,
+        //                   ))),
+        //               Column(
+        //                 crossAxisAlignment: CrossAxisAlignment.center,
+        //                 children: [
+        //                   Text(
+        //                       '${LoggedUser?.details!.name ?? "---"}'
+        //                           .toUpperCase(),
+        //                       style: TextStyle(
+        //                           fontSize: 30, fontWeight: FontWeight.bold)),
+        //                   SizedBox(height: 2.0),
+        //                   Text('${LoggedUser?.details!.email ?? "---"}',
+        //                       style: TextStyle(
+        //                           color: Colors.blue,
+        //                           fontStyle: FontStyle.italic)),
+        //                 ],
+        //               ),
+        //               SizedBox(height: 10.0),
+        //               Container(
+        //                 child: Row(
+        //                     mainAxisAlignment: MainAxisAlignment.center,
+        //                     children: [
+        //                       Text('Employee ID:',
+        //                           style: TextStyle(
+        //                             color: Colors.grey,
+        //                           )),
+        //                       Text(
+        //                         '${LoggedUser?.details!.ID ?? "---"}'
+        //                             .padLeft(5, "0"),
+        //                         style: TextStyle(color: Colors.black),
+        //                       )
+        //                     ]),
+        //               ),
+        //               Divider(
+        //                 height: 20,
+        //                 thickness: 3,
+        //                 indent: 20,
+        //                 endIndent: 20,
+        //               ),
+        //               Container(
+        //                 width: MediaQuery.of(context).size.width,
+        //                 child: Row(
+        //                   crossAxisAlignment: CrossAxisAlignment.center,
+        //                   mainAxisAlignment: MainAxisAlignment.center,
+        //                   mainAxisSize: MainAxisSize.max,
+        //                   children: [
+        //                     Expanded(
+        //                       flex: 3,
+        //                       child: Column(
+        //                         children: [
+        //                           Text(
+        //                             '7',
+        //                             style: TextStyle(color: Colors.blue),
+        //                             textAlign: TextAlign.center,
+        //                           ),
+        //                           Text(
+        //                             'Designation',
+        //                             style: TextStyle(color: Colors.grey),
+        //                           )
+        //                         ],
+        //                       ),
+        //                     ),
+        //                     Expanded(
+        //                       child: SizedBox(
+        //                         height: 30,
+        //                         child: VerticalDivider(
+        //                           thickness: 2,
+        //                           indent: 5,
+        //                           endIndent: 0,
+        //                           width: 20,
+        //                         ),
+        //                       ),
+        //                     ),
+        //                     Expanded(
+        //                       flex: 3,
+        //                       child: Column(
+        //                         children: [
+        //                           Text(
+        //                             '06/017/2020',
+        //                             style: TextStyle(color: Colors.blue),
+        //                             textAlign: TextAlign.center,
+        //                           ),
+        //                           Text(
+        //                             'Hired Date',
+        //                             style: TextStyle(color: Colors.grey),
+        //                           )
+        //                         ],
+        //                       ),
+        //                     ),
+        //                   ],
+        //                 ),
+        //               ),
+        //             ],
+        //           )),
+        //       Divider(
+        //         color: Colors.blue,
+        //         thickness: 5,
+        //         indent: 1,
+        //         endIndent: 1,
+        //       ),
+        //       SizedBox(
+        //         height: 75,
+        //         child: AppBar(
+        //           backgroundColor: Colors.white,
+        //           bottom: TabBar(
+        //             controller: _tabController,
+        //             unselectedLabelColor: Colors.grey,
+        //             labelColor: Colors.blue,
+        //             indicatorColor: Colors.blue,
+        //             tabs: [
+        //               Tab(
+        //                 icon: Icon(
+        //                   Icons.person_outline,
+        //                   color: _tabController!.index == 0
+        //                       ? Colors.blue
+        //                       : Colors.grey,
+        //                 ),
+        //                 text: 'General',
+        //               ),
+        //               Tab(
+        //                 icon: Icon(Icons.calendar_today_rounded,
+        //                     color: _tabController!.index == 1
+        //                         ? Colors.blue
+        //                         : Colors.grey),
+        //                 text: 'Attendance',
+        //               ),
+        //               Tab(
+        //                 icon: Icon(Icons.account_balance_wallet_rounded,
+        //                     color: _tabController!.index == 2
+        //                         ? Colors.blue
+        //                         : Colors.grey),
+        //                 text: 'Payroll',
+        //               ),
+        //             ],
+        //           ),
+        //         ),
+        //       ),
+        //       Expanded(
+        //         child: TabBarView(controller: _tabController, children: _tabs),
+        //       )
+            ],
         ),
+       ),
       ),
-    ));
+    )
+    );
   }
 }

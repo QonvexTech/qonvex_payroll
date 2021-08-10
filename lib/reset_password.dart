@@ -6,7 +6,6 @@ class ResetPassword extends StatefulWidget {
   @override
   _ResetPasswordState createState() => _ResetPasswordState();
 }
-
 class _ResetPasswordState extends State<ResetPassword> {
   bool _passwordVisible = false;
   final TextEditingController _userPasswordController =
@@ -47,7 +46,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                         leadingWidth: 190,
                         backgroundColor: Colors.transparent,
                         elevation: 0,
-                      )),
+                      )
+                  ),
               ),
             body: Container(
               padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -136,7 +136,9 @@ class _ResetPasswordState extends State<ResetPassword> {
                               iconSize: 20,
                               onPressed: () {},
                             )
-                          ])),
+                          ]
+                      )
+                  ),
                 )
             ]
           )
