@@ -32,7 +32,6 @@ class AuthService {
       return false;
     }
   }
-
   Future<bool> register({required String email,
     required String fullname,
     required String password}) async {
@@ -54,27 +53,6 @@ class AuthService {
     }
     );
   }
-  Future<bool> HistoryPage({required String email,
-    required String fullname,
-    required String password}) async {
-    return await http
-        .post(Uri.parse("${API.domain}api/user/register"), headers: {
-      "accept": "application/json"
-    }, body: {
-      "email": email,
-      "first_name": fullname,
-      "password": password,
-    }).then((response) {
-      var data = json.decode(response.body);
-      print(data.toString());
-      if (response.statusCode == 200) {
-        LoggedUser.details = UserModel.fromJson(data['user']);
-        LoggedUser.accessToken = "${data['access_token']}";
-      }
-      return response.statusCode == 200;
-    });
-  }
-
   // Future<bool> profile(
   //     {required String age,
   //     required String gender,

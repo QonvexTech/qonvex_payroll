@@ -81,8 +81,11 @@ class _RegisterState extends State<Register> {
                     ),
                     Container(
                       width: double.infinity,
+                      // child: TextFormField(
+                      //     controller: _fullnameController,
+                      //   width: double.infinity,
                       child: TextFormField(
-                          controller: _fullnameController,
+                          controller: _emailController,
                           decoration: InputDecoration(
                             labelText: "Email",
                             labelStyle: TextStyle(
